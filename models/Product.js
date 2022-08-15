@@ -13,40 +13,37 @@ Product.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-
-  },
-  {
     price: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL,
       allowNull: false
-    },
+      //Validates that the value is a decimal
 
-  },
-  {
+    },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false
-    },
+      //Set a default value of 10
 
-  },
-  {
-    category_id: {
+      //Validates that the value is numeric
+      
+    },
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-
+    category_id: {
+      type: DataTypes.INTEGER,
+     //References the category model's id
+    },
   },
-
-
   {
-    sequelize,
+    sequelize: sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'product',
   }
 );
-
 module.exports = Product;
