@@ -1,3 +1,5 @@
+// Creating a conection to Sequlizes database
+
 require('dotenv').config();
 
 const Sequelize = require('sequelize');
