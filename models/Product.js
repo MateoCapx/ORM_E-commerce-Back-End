@@ -15,17 +15,21 @@ Product.init(
     },
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: false
+      allowNull: false,
       //Validates that the value is a decimal
-
+      validate: {
+        isDecimal: true,
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
       //Set a default value of 10
-
+      defaultValue: 10,
       //Validates that the value is numeric
-      
+      validate: {
+        isNumeric: true,  
+      }
     },
     id: {
       type: DataTypes.INTEGER,
@@ -36,6 +40,7 @@ Product.init(
     category_id: {
       type: DataTypes.INTEGER,
      //References the category model's id
+
     },
   },
   {
@@ -44,6 +49,12 @@ Product.init(
     freezeTableName: true,
     underscored: true,
     modelName: 'product',
-  }
+  },
+
+  // Product.sync().then(()=>{
+  //   console.log("Sync Successfully")
+  // }).catch((err)=>{
+  //   console.log(err);
+  // })
 );
 module.exports = Product;
