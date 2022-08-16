@@ -5,37 +5,15 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
-//   try {
-//     const product = Product.findAll({
-//         include: [
-//             {
-//               product_name,
-//               price,
-//               stock,
-//               id
-//             }
-//         ]
-//     });
-//     return res.status(200).json({ product });
-// } catch (error) {
-//     return res.status(500).send(error.message);
-// }
-
-const project =  Product.findAll({ include: { productData} });
-if (project === null) {
-  console.log('Not found!');
-} else {
-  console.log(JSON.stringify(project)); // true
- // 'My Title'
-}
-
-  // find all products
-  // be sure to include its associated Category and Tag data
+  Product.findAll().then((products) => res.status(200).json(products))
+  // I was returing that data before the data was finished querying 
 });
 
 // get one product
 router.get('/:id', (req, res) => {
-  Product.findOne()
+
+  const { id } = req.params;
+  Product.findOne({where:{id:id}}).then((products) => res.status(200).json(products))
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
 });
@@ -116,6 +94,19 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
+
+  const { id } = req.params;
+  Product.destroy({where:{id:id}}).then((products) => res.status(200).send('Product is deleted'))
+
 });
 
 module.exports = router;
+
+
+// {
+//   "product_name": "Cargo Shorts",
+//   "price": 30,
+//   "stock": 22,
+//   "id": 5,
+//   "category_id": 2
+// }
