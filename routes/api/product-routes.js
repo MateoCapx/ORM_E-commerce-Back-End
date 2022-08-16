@@ -5,7 +5,30 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
-  Product.findAll()
+//   try {
+//     const product = Product.findAll({
+//         include: [
+//             {
+//               product_name,
+//               price,
+//               stock,
+//               id
+//             }
+//         ]
+//     });
+//     return res.status(200).json({ product });
+// } catch (error) {
+//     return res.status(500).send(error.message);
+// }
+
+const project =  Product.findAll({ include: { productData} });
+if (project === null) {
+  console.log('Not found!');
+} else {
+  console.log(JSON.stringify(project)); // true
+ // 'My Title'
+}
+
   // find all products
   // be sure to include its associated Category and Tag data
 });
