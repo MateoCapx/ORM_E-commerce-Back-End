@@ -33,3 +33,21 @@ WHEN I test API POST, PUT, and DELETE routes in Insomnia
 
 
 THEN I am able to successfully create, update, and delete data in my database
+
+
+
+GET Route Video
+
+https://watch.screencastify.com/v/GIZvATrZOeKm10CcDWrI (Links to an external site.)
+
+ 
+
+Get Route with Single tag video 
+
+https://watch.screencastify.com/v/Hp2xcEIww0vnAS03XtVI (Links to an external site.)
+
+ 
+
+POST, PUT, and DELETE routes Video
+
+https://watch.screencastify.com/v/9LYOxcuPfcZJFAgKwbBs
